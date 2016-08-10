@@ -1,0 +1,66 @@
+﻿@model ProductAuction.com.Models.Classlogin
+
+@{
+    ViewBag.Title = "UserDetails";
+}
+
+<h2>UserDetails</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Classlogin</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.ProdId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProdId)
+            @Html.ValidationMessageFor(model => model.ProdId)
+        </div>*@
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.EmpId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmpId)
+            @Html.ValidationMessageFor(model => model.EmpId)
+        </div>*@
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.EmpMail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmpMail)
+            @Html.ValidationMessageFor(model => model.EmpMail)
+        </div>*@
+        <div class="form-group" >
+            @Html.LabelFor(model => model.EmpMail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="success">
+                    @Html.EditorFor(model => model.EmpMail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EmpMail, "", new { @class = "text-danger" })
+                </div>
+            </div>  </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmpId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmpId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmpId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <p>
+            <input type="submit"  value="login" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
